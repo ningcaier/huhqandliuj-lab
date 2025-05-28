@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刘俊课题组 - 极端环境微生物研究</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1a5a7a;
+            --secondary: #2c8c99;
+            --accent: #e67e22;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #28a745;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f5f9;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .lab-name {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .lab-tagline {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .header-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.8) 0.5px, transparent 1px),
+                radial-gradient(circle at 90% 80%, rgba(255,255,255,0.8) 0.5px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .research-areas {
+            background-color: white;
+        }
+        
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .research-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--secondary);
+        }
+        
+        .research-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .research-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .research-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .team {
+            background-color: #f8f9fa;
+        }
+        
+        .team-stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            min-width: 200px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        
+        .resources {
+            background-color: white;
+        }
+        
+        .resource-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .resource-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .resource-image {
+            flex: 1;
+            min-width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .recruitment {
+            background: linear-gradient(135deg, var(--primary), #0d3c52);
+            color: white;
+        }
+        
+        .recruitment .section-title {
+            color: white;
+        }
+        
+        .positions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .position-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .position-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .position-list {
+            list-style-type: none;
+            margin: 1.5rem 0;
+        }
+        
+        .position-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .position-list li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        
+        .contact {
+            text-align: center;
+            padding: 5rem 0;
+        }
+        
+        .contact-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);
+        }
+        
+        .contact-button:hover {
+            background: #d35400;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.4);
+        }
+        
+        .email-link {
+            display: block;
+            font-size: 1.4rem;
+            margin-top: 1rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .lab-name {
+                font-size: 2rem;
+            }
+            
+            .lab-tagline {
+                font-size: 1.1rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .resource-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-decoration"></div>
+        <div class="header-content">
+            <h1 class="lab-name">刘俊课题组</h1>
+            <p class="lab-tagline">探索微生物世界的奥秘 · 推动环境生物技术创新</p>
+        </div>
+    </header>
+    
+    <section class="research-areas">
+        <div class="container">
+            <h2 class="section-title">研究方向</h2>
+            <div class="research-grid">
+                <div class="research-card">
+                    <div class="research-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3 class="research-title">极端环境微生物</h3>
+                    <p>研究极端环境下的微生物适应机制及其应用潜力</p>
+                </div>
+                
+                <div class="research-card">
+                    <div class="research-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3 class="research-title">污染生态学</h3>
+                    <p>探索污染物在生态系统中的迁移转化规律及生态效应</p>
+                </div>
+                
+                <div class="research-card">
+                    <div class="research-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="research-title">土壤微生物生态学</h3>
+                    <p>揭示土壤微生物群落结构与功能及其对环境的响应</p>
+                </div>
+                
+                <div class="research-card">
+                    <div class="research-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <h3 class="research-title">功能基因组学</h3>
+                    <p>从基因组水平解析微生物的生理功能与代谢途径</p>
+                </div>
+                
+                <div class="research-card">
+                    <div class="research-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="research-title">生物信息学</h3>
+                    <p>开发和应用计算方法分析复杂的生物学数据</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="team">
+        <div class="container">
+            <h2 class="section-title">团队构成</h2>
+            <div class="team-stats">
+                <div class="stat-card">
+                    <div class="stat-number">9</div>
+                    <div class="stat-label">团队成员</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">博士后</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">博士研究生</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">硕士研究生</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="resources">
+        <div class="container">
+            <h2 class="section-title">实验资源与环境</h2>
+            <div class="resource-content">
+                <div class="resource-text">
+                    <p>课题组实验资源充裕，配备先进的微生物学、分子生物学和生物信息学实验平台，满足各类研究需求。</p>
+                    <p>办公和实验集中在学校主楼及附近现代化实验室进行，提供良好的科研环境和学术氛围。</p>
+                    <p>组内研发热情高涨，定期开展学术讨论、文献分享和技能培训，促进成员间的交流与合作。</p>
+                </div>
+                <div class="resource-image">
+                    先进的科研环境与设备
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="recruitment">
+        <div class="container">
+            <h2 class="section-title">加入我们</h2>
+            <div class="positions">
+                <div class="position-card">
+                    <h3 class="position-title">硕士研究生/博士研究生</h3>
+                    <p>欢迎具有以下专业背景的同学报考：</p>
+                    <ul class="position-list">
+                        <li>微生物学</li>
+                        <li>生态学</li>
+                        <li>遗传学</li>
+                        <li>信息学</li>
+                        <li>环境科学与工程</li>
+                        <li>环境生物技术</li>
+                    </ul>
+                </div>
+                
+                <div class="position-card">
+                    <h3 class="position-title">博士后研究人员</h3>
+                    <p>因发展需要，课题组常年招收博士后：</p>
+                    <ul class="position-list">
+                        <li>极端环境微生物方向</li>
+                        <li>污染环境微生物生态方向</li>
+                        <li>遗传进化和生物信息方向</li>
+                    </ul>
+                    <p>提供具有竞争力的薪资待遇和科研支持</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title">联系我们</h2>
+            <p>欢迎对微生物研究充满热情的您加入我们团队！</p>
+            <p>请通过以下方式与我们联系：</p>
+            
+            <a href="mailto:liujun2021@mail.hzau.edu.cn" class="contact-button">
+                <i class="fas fa-envelope"></i> 发送申请邮件
+            </a>
+            
+            <a href="mailto:liujun2021@mail.hzau.edu.cn" class="email-link">
+                liujun2021@mail.hzau.edu.cn
+            </a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>刘俊课题组 &copy; 2023 | 探索微生物世界的奥秘，推动环境科学发展</p>
+            <p>地址：华中农业大学主楼 | 电话：+86 XXX XXXX XXXX</p>
+        </div>
+    </footer>
+
+    <script>
+        // 添加滚动动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            // 观察所有需要动画的部分
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                section.style.transform = 'translateY(20px)';
+                observer.observe(section);
+            });
+            
+            // 添加动画类
+            document.querySelectorAll('section').forEach(section => {
+                section.addEventListener('transitionend', function() {
+                    this.style.opacity = '1';
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
